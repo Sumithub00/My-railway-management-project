@@ -1,6 +1,6 @@
 # connect Database 
 import mysql.connector as a
-con=a.connect(host="localhost" ,user="root", passwd='root')
+con=a.connect(host="localhost",user="root",passwd='root')
  
 # Select Data Base If Exist 
  
@@ -18,13 +18,13 @@ else:
    c.execute(sql1)
    sql2="use myrailway"
    c.execute(sql2)
-   sql3="create table Train(Name varchar(50),            cost integer , Distance integer , Data                         varchar(20))"
+   sql3="create table Train(Name varchar(50),cost integer,Distance integer,Data varchar(20))"
    c.execute(sql3)
-   sql4="create table customer(Name                           varchar(20),Train varchar(25),Payment integer ,     Data varchar(20) , Phone varchar(20))"
+   sql4="create table customer(Name varchar(20),Train varchar(25),Payment integer,Data varchar(20),Phone varchar(20))"
    c.execute(sql4)
-   sql5="create table Bills (Details varchar(20),           Cost integer ,Data varchar(20))"
+   sql5="create table Bills (Details varchar(20),Cost integer,Data varchar(20))"
    c.execute(sql5)
-   sql6="create table worker(Name varchar(50) ,        work varchar(15) , Salary  varchar(20))"
+   sql6="create table worker(Name varchar(50),work varchar(15),Salary varchar(20))"
    c.execute(sql6)
    con.commit()
  	
@@ -32,7 +32,7 @@ else:
 def signin():
    print("\n")
    print("--------------->>>>>>>>>>Welcome,My"     
-    "Railway Management System To My All                   [MRMSTMA]<<<<<<<<<--------")
+    "Railway Management System To My All [MRMSTMA]<<<<<<<<<--------")
    p=input("Enter the system password:")
    if p=="mrs456":
     	options()
@@ -109,7 +109,7 @@ def BookTrain():
 	d=input("Date:")
 	p=input("phone:")
 	data=(n,s,py,d,p)
-	sql='insert into customer values(%s,%s,%s,%s,        %s)'
+	sql='insert into customer values(%s,%s,%s,%s,%s)'
 	c=con.cursor()
 	c.execute(sql,data)
 	con.commit()
@@ -124,12 +124,12 @@ def DisplayPayments():
 	c.execute(sql)
 	d=c.fetchall()
 	for i in d:
-			print("Name:", i[0])
-			print("Train:", i[1])
-			print("Payment:", i[2])
-			print("Date:", i[3])
-			print("phone:", i[4])
-			print("-----------")
+	     print("Name:", i[0])
+	     print("Train:", i[1])
+	     print("Payment:", i[2])
+	     print("Date:", i[3])
+	     print("phone:", i[4])
+	     print("-----------")
 	options()
 		
 		
